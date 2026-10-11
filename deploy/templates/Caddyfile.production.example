@@ -1,0 +1,18 @@
+{
+    admin off
+    http_port 8080
+    https_port 8443
+    servers {
+        protocols h1 h2
+    }
+}
+
+REPLACE_DOMAIN {
+    tls {
+        issuer acme {
+            disable_tlsalpn_challenge
+        }
+    }
+    # Website content is deferred. This is the own-domain HTTPS target.
+    respond "Service available" 200
+}

@@ -1,0 +1,31 @@
+{
+  "name": "config-v-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check tools/vpn.mjs && node --check tools/config.mjs && node --check tools/docker.mjs && node --check tools/smoke.mjs && node --check tools/lifecycle.mjs && node --check tools/settings.mjs && node --check tools/colima.mjs && npm test",
+    "vpn:init": "node tools/vpn.mjs init",
+    "vpn:add-client": "node tools/vpn.mjs add-client",
+    "vpn:validate": "node tools/vpn.mjs validate",
+    "vpn:seed": "node tools/vpn.mjs seed",
+    "vpn:plan": "node tools/vpn.mjs plan",
+    "vpn:apply": "node tools/vpn.mjs apply",
+    "vpn:status": "node tools/vpn.mjs status",
+    "colima:profile": "sh scripts/colima-profile.sh",
+    "vpn:smoke": "node tools/smoke.mjs",
+    "init": "node tools/lifecycle.mjs init",
+    "restart": "node tools/lifecycle.mjs restart",
+    "restart:vpn": "node tools/lifecycle.mjs restart --target vpn",
+    "restart:client": "node tools/lifecycle.mjs restart --target client",
+    "restart:back": "node tools/lifecycle.mjs restart --target back",
+    "restart:all": "node tools/lifecycle.mjs restart --target all"
+  },
+  "dependencies": {
+    "yaml": "2.9.1"
+  }
+}

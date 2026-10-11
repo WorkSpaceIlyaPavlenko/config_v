@@ -1,0 +1,17 @@
+# Dedicated local VM template. An empty list [] would mount the host HOME.
+cpu: 2
+memory: 2
+disk: 20
+arch: host
+runtime: docker
+vmType: vz
+mounts: null
+forwardAgent: false
+sshConfig: false
+autoActivate: false
+portForwarder: ssh
+network:
+  address: false
+  hostAddresses: false
+kubernetes:
+  enabled: false
